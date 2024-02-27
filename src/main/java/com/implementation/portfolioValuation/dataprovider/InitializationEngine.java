@@ -15,8 +15,8 @@ public class InitializationEngine {
 		SpringApplication.run(InitializationEngine.class, args);
 		MarketDataProviderService mdp = new MarketDataProviderService(10);
 		PortfolioManager manager = new PortfolioManager("PortfolioFile.csv");
-		while (true) {
-			//System.out.println(MarketDataProviderService.getSecurityPrice(10,TimeUnit.SECONDS));
+		while (true)
+		{
 			manager.markToMarketPortfolio();
 		}
 
