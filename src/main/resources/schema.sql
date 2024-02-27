@@ -4,8 +4,8 @@ CREATE TABLE SECURITY (
     ticker VARCHAR(250) NOT NULL,
     maturity VARCHAR(250) NULL,
     security_Type VARCHAR(10) NOT NULL,
-    price NUMERIC NULL,
-    strike_Price NUMERIC NULL,
-    mu NUMERIC NULL,
-    sigma NUMERIC NULL
+    price DOUBLE NULL,
+    strike_Price DOUBLE NULL,
+    mu DOUBLE NULL,
+    sigma DOUBLE NULL
 );

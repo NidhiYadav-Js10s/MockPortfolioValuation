@@ -27,13 +27,12 @@ public class PortfolioManager
        if(security == null)
             return;
 
-       List<Position> affectedPositions = managedPortfolio.getPortfolioPositions().stream().parallel()
+       List<Position> affectedPositions = managedPortfolio.getPortfolioPositions().stream()
                .filter(x -> x.getSymbol().contains(security.getTicker())).collect(Collectors.toList());
 
-       affectedPositions.stream().parallel().forEach( x -> {
-           if(soi.stream().filter( sec-> sec.getTicker().equals(x.getSymbol())).findAny().isPresent())
-           {
-               Security identifiedMatch = soi.stream().filter( sec-> sec.getTicker().equals(x.getSymbol())).findFirst().orElse(null);
+       affectedPositions.stream().forEach( x -> {
+               Security identifiedMatch = soi.stream().filter( sec-> sec.getTicker().equals(x.getSymbol()))
+                       .findFirst().orElse(null);
                if(identifiedMatch.getSecurityType().equals("STOCK"))
                {
                    x.setMarketValue(security.getPrice()*x.getUnits());
@@ -42,12 +41,11 @@ public class PortfolioManager
                else
                {
                    EuropeanOptionPricer.OptionType ot = EuropeanOptionPricer.OptionType.valueOf(identifiedMatch.getSecurityType());
-                   Double effectivePrice = EuropeanOptionPricer.calculatePrice(ot, security.getPrice(), security.getStrikePrice(),
-                           security.getMaturity(), security.getSigma());
+                   Double effectivePrice = EuropeanOptionPricer.calculatePrice(ot, security.getPrice(), identifiedMatch.getStrikePrice(),
+                           identifiedMatch.getMaturity(), security.getSigma());
                    x.setMarketValue(effectivePrice*x.getUnits());
                    x.setPrice(effectivePrice);
                }
-           }
        });
 
         System.out.println("Affected positions are :: " + affectedPositions);

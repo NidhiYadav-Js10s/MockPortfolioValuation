@@ -16,6 +16,7 @@ public class InitializationEngine {
 		MarketDataProviderService mdp = new MarketDataProviderService(10);
 		PortfolioManager manager = new PortfolioManager("PortfolioFile.csv");
 		while (true) {
+			//System.out.println(MarketDataProviderService.getSecurityPrice(10,TimeUnit.SECONDS));
 			manager.markToMarketPortfolio();
 		}
 
