@@ -32,7 +32,7 @@ public class PortfolioManager
 
     public void markToMarketPortfolio() throws Exception
     {
-        this.managedPortfolio.setChangedSecurity( MarketDataProviderService.getSecurityPrice(12, TimeUnit.SECONDS));
+        this.managedPortfolio.setChangedSecurity( MarketDataProviderService.getSecurityPrice(9, TimeUnit.SECONDS));
        if(this.managedPortfolio.getChangedSecurity() == null)
             return;
 
