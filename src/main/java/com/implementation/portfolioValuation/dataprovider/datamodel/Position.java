@@ -3,7 +3,7 @@ package com.implementation.portfolioValuation.dataprovider.datamodel;
 public class Position
 {
     private String symbol;
-    private Integer units;
+    private Double units;
     private Double marketValue;
 
     public Double getPrice() {
@@ -18,7 +18,7 @@ public class Position
     public String getSymbol() {
         return symbol;
     }
-    public Integer getUnits() {
+    public Double getUnits() {
         return units;
     }
     public Double getMarketValue() {
@@ -27,7 +27,7 @@ public class Position
     public void setMarketValue(Double marketValue) {
         this.marketValue = marketValue;
     }
-    public Position(String sym, Integer units)
+    public Position(String sym, Double units)
     {
         symbol = sym;
         this.units = units;

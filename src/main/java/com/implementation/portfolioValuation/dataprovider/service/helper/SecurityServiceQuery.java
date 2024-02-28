@@ -27,7 +27,6 @@ public class SecurityServiceQuery {
 
         HttpResponse httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         List<Security> securitiesOfInterestList = List.of(fromJson(httpResponse.body().toString()));
-        System.out.println(securitiesOfInterestList);
         return  securitiesOfInterestList;
     }
 

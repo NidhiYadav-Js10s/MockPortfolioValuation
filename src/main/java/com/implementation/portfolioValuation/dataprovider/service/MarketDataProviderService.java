@@ -7,11 +7,20 @@ import com.google.protobuf.util.JsonFormat;
 import com.implementation.portfolioValuation.dataprovider.datamodel.Security;
 import com.implementation.portfolioValuation.dataprovider.pricer.GBStockPriceGenerator;
 import com.implementation.portfolioValuation.dataprovider.service.helper.SecurityServiceQuery;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
+@Component
+@Scope("prototype")
 public class MarketDataProviderService
 {
 
@@ -21,7 +30,7 @@ public class MarketDataProviderService
 
     static ArrayBlockingQueue<String> priceQueue = new ArrayBlockingQueue<>(10);
 
-    public MarketDataProviderService(Integer delta) throws Exception
+    public MarketDataProviderService(@Value("${app.delta}") Integer delta) throws Exception
     {
         this.deltaInSeconds = delta;
 

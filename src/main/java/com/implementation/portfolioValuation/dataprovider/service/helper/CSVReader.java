@@ -22,7 +22,7 @@ public class CSVReader
                 if(i++ == 0)
                     continue;
                String[] inputElements= line.split(",");
-               portfolio.getPortfolioPositions().add(new Position(inputElements[0],Integer.parseInt(inputElements[1].trim())));
+               portfolio.getPortfolioPositions().add(new Position(inputElements[0],Double.parseDouble(inputElements[1].trim())));
             }
         }
         catch (IOException e) {
