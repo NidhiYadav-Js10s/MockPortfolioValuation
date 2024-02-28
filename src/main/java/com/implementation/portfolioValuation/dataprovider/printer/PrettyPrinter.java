@@ -73,5 +73,6 @@ public class PrettyPrinter implements ISubscriber
                 System.out.println();
             finalCounter.getAndIncrement();
         });
+        System.out.println();
     }
 }
