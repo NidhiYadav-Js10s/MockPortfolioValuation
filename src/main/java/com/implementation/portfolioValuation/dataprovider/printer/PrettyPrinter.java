@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
-@Scope("prototype")
 public class PrettyPrinter implements ISubscriber
 {
     static int counter = 0;

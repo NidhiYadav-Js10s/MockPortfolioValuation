@@ -10,6 +10,7 @@ import com.implementation.portfolioValuation.dataprovider.service.helper.Securit
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 @Component
-@Scope("prototype")
+@Lazy
 public class MarketDataProviderService
 {
 
@@ -30,7 +31,7 @@ public class MarketDataProviderService
 
     static ArrayBlockingQueue<String> priceQueue = new ArrayBlockingQueue<>(10);
 
-    public MarketDataProviderService(@Value("${app.delta}") Integer delta) throws Exception
+    public MarketDataProviderService(@Value("${app.time.delta}") Integer delta) throws Exception
     {
         this.deltaInSeconds = delta;
 

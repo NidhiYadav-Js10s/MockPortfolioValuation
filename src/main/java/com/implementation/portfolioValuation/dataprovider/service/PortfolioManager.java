@@ -7,6 +7,10 @@ import com.implementation.portfolioValuation.dataprovider.printer.ISubscriber;
 import com.implementation.portfolioValuation.dataprovider.service.helper.CSVReader;
 import com.implementation.portfolioValuation.dataprovider.service.helper.EuropeanOptionPricer;
 import com.implementation.portfolioValuation.dataprovider.service.helper.SecurityServiceQuery;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,17 +18,17 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+@Component
+@Lazy
 public class PortfolioManager
 {
     Portfolio managedPortfolio;
     List<Security> soi;
-    public PortfolioManager(String filename) throws Exception
+    public PortfolioManager(@Value("${app.portfolio.filename}") String filename) throws Exception
     {
         managedPortfolio = CSVReader.readCSVData(filename);
         soi = SecurityServiceQuery.getAllSecurity();
     }
-
-
 
     public void markToMarketPortfolio() throws Exception
     {
