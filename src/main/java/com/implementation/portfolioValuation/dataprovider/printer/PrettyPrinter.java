@@ -35,7 +35,7 @@ public class PrettyPrinter implements ISubscriber
             if(x.getSymbol().length() > maxLength.get())
                 maxLength.set(x.getSymbol().length());
 
-            data[finalCounter.get()][1] = x.getPrice() == null ? "" : String.format(FORMATTER,x.getPrice());
+            data[finalCounter.get()][1] = x.getPrice() == null ? "0.0" : String.format(FORMATTER,x.getPrice());
             if(data[finalCounter.get()][1].length() > maxLength.get())
                 maxLength.set(data[finalCounter.get()][1].length());
 
@@ -43,7 +43,7 @@ public class PrettyPrinter implements ISubscriber
             if(data[finalCounter.get()][2] .length() > maxLength.get())
                 maxLength.set(x.getUnits().toString().length());
 
-            data[finalCounter.get()][3] = x.getMarketValue() == null ? "" : String.format(FORMATTER,x.getMarketValue());
+            data[finalCounter.get()][3] = x.getMarketValue() == null ? "0.0" : String.format(FORMATTER,x.getMarketValue());
             if(data[finalCounter.get()][3].length() > maxLength.get())
                 maxLength.set(data[finalCounter.get()][3].length());
 
