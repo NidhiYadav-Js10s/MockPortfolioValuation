@@ -38,3 +38,9 @@ which have security as the underlier.
 4) PrettyPrinter subscribes to the Portfolio manager for any portfolio updates. It uses Observer Design Pattern to update the positions. 
 5) Every time portfolio is updates - Pretty printers prints the portfolio
 
+## Test Cases Covered
+
+Test Case 1: For a price update of a security no matching position is found. 
+Test Case 2: For a price update only a stock is found no Option.
+Test Case 3: For a price update all the positions (options or stocks) are marked to market. 
+
