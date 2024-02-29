@@ -55,3 +55,5 @@ Test Case 3: For a price update all the positions (options or stocks) are marked
 
 Test Case 4: Minimum price generated is 0
 
+Test Case 5: When there are no prices available at start of the day - valuation should be 0
+
