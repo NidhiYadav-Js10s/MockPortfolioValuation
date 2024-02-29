@@ -44,7 +44,7 @@ public class EuropeanOptionPricer
                 throw new IllegalArgumentException("Accepted option type is only Call or Put");
             }
         }
-        return optionPrice;
+        return Math.max(0,optionPrice);
     }
 
     // The Abramowitz & Stegun (1964) numerical approximation
