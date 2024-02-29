@@ -28,9 +28,20 @@ public class PortfolioManager
     {
         managedPortfolio = CSVReader.readCSVData(filename);
         soi = SecurityServiceQuery.getAllSecurity();
+        Thread t = new Thread(()-> {
+            try {
+                while(true)
+                 this.markToMarketPortfolio();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        t.start();
+
     }
 
-    public void markToMarketPortfolio() throws Exception
+    private void markToMarketPortfolio() throws Exception
     {
         this.managedPortfolio.setChangedSecurity( MarketDataProviderService.getSecurityPrice(9, TimeUnit.SECONDS));
        if(this.managedPortfolio.getChangedSecurity() == null)

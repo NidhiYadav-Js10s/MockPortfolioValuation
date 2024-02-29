@@ -19,11 +19,6 @@ public class InitializationEngine {
 		MarketDataProviderService mdp  = ctxt.getBean("marketDataProviderService", MarketDataProviderService.class);
 		PortfolioManager manager = ctxt.getBean("portfolioManager", PortfolioManager.class);
 		manager.subscribe(ctxt.getBean("prettyPrinter", PrettyPrinter.class));
-		while (true)
-		{
-			manager.markToMarketPortfolio();
-		}
-
 	}
 
 }
