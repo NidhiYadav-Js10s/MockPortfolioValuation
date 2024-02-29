@@ -1,5 +1,7 @@
 # MockPortfolioValuation
 
+Solution is built using Java 17. 
+
 ---
 
 There are 2 major components of the portfolio valuation system:
