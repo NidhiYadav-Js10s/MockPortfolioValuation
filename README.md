@@ -52,3 +52,5 @@ Test Case 2: For a price update only a stock is found no Option.
 
 Test Case 3: For a price update all the positions (options or stocks) are marked to market. 
 
+Test Case 4: Minimum price generated is 0
+
