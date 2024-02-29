@@ -4,7 +4,8 @@ Solution is built using Java 17.
 
 ---
 
-![Screenshot 2024-03-01 at 6 32 46 AM](https://github.com/NidhiYadav-Js10s/MockPortfolioValuation/assets/12932116/f2b42c71-e20a-4c5e-9377-3d2d8210bea9)
+![Screenshot 2024-03-01 at 6 55 23 AM](https://github.com/NidhiYadav-Js10s/MockPortfolioValuation/assets/12932116/181b576d-dc8b-4feb-b403-452c62c36d83)
+
 
 
 There are 2 major components of the portfolio valuation system:
