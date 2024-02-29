@@ -38,7 +38,8 @@ which have security as the underlier.
 2) Market data service is loaded lazily to allow security service to startup before it
 3) Portfolio manager is loaded lazily
 4) PrettyPrinter subscribes to the Portfolio manager for any portfolio updates. It uses Observer Design Pattern to update the positions. 
-5) Every time portfolio is updates - Pretty printers prints the portfolio
+5) Every time portfolio is updated due to security price update - Pretty printers prints the portfolio.
+6) Pretty printer is a subscriber to the updates. Portfolio Manager supports publishing data to multiple subscribers if required. 
 
 ## Test Cases Covered
 
